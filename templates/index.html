@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ .Title }}</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+  </head>
+  <body>
+    <div id="greeting">What is your name?</div>
+    <form hx-post="/name" hx-target="#greeting" hx-swap="innerHTML">
+      <input type="text" name="name" />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
