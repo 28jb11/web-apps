@@ -9,7 +9,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", routes.IndexHandler)
-	http.HandleFunc("/name", routes.NameHandler)
+	http.HandleFunc("/greeting", routes.NameHandler)
 
 	log.Println("Listening on :8080...")
 	err := http.ListenAndServe(":8080", nil)
