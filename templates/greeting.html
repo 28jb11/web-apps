@@ -1,5 +1,17 @@
-<div id="greeting">What is your name?</div>
-<form hx-post="/name" hx-target="#greeting" hx-swap="innerHTML">
-  <input type="text" name="name" />
-  <button type="submit">Submit</button>
-</form>
+{{ define "greeting" }} {{ if eq .Name "" }}
+<div id="greeting">
+  What is your name?
+  <form hx-post="/name" hx-target="#greeting" hx-swap="innerHTML">
+    <input type="text" name="name" />
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{{ else }}
+<div id="greeting">
+  Hello, {{ .Name }}!
+  <form hx-post="/name" hx-target="#greeting" hx-swap="innerHTML">
+    <input type="text" name="name" />
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{{ end }} {{ end }}

@@ -1,0 +1,33 @@
+{{define "nav"}}
+<nav>
+  <ul>
+    <li>
+      <a
+        href="/index"
+        hx-get="/index"
+        hx-target="#main-content"
+        hx-swap="innerHTML"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a
+        href="/about"
+        hx-get="/about"
+        hx-target="#main-content"
+        hx-swap="innerHTML"
+        >About</a
+      >
+    </li>
+    <li>
+      <a
+        href="/contact"
+        hx-get="/contact"
+        hx-target="#main-content"
+        hx-swap="innerHTML"
+        >Contact</a
+      >
+    </li>
+  </ul>
+</nav>
+{{end}}

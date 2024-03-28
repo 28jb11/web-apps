@@ -1,0 +1,23 @@
+{{define "base"}}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{{.Title}}</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+    <link href="./src/output.css" rel="stylesheet" />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    {{template "header" .}} {{template "nav" .}}
+    <!-- The container where dynamic content will be loaded -->
+    <div
+      class="flex-grow container mx-auto px-4 py-8"
+      id="main-content"
+      hx-get="/index"
+      hx-trigger="load"
+    >
+      {{template "index" .}}
+    </div>
+    {{template "footer" .}}
+  </body>
+</html>
+{{end}}
