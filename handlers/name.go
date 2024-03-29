@@ -10,7 +10,11 @@ type NameHandler struct {
 }
 
 func (t NameHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
+	if err := r.ParseForm(); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
 	greetingName := r.FormValue("name")
 
 	type PageData struct {

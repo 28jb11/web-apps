@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	handlers "github.com/28jb11/calculator/handlers"
+	"github.com/28jb11/calculator/handlers"
 )
 
 func main() {
@@ -14,6 +14,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	// Serve static files from the "src" directory
+	fs := http.FileServer(http.Dir("src"))
+	http.Handle("/src/", http.StripPrefix("/src/", fs))
 
 	// Initialize handlers with templates.
 	baseHandler := &handlers.BaseHandler{Tmpl: templates}

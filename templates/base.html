@@ -3,21 +3,21 @@
 <html lang="en">
   <head>
     <title>{{.Title}}</title>
+    <link href="/src/output.css" rel="stylesheet" />
     <script src="https://unpkg.com/htmx.org"></script>
-    <link href="./src/output.css" rel="stylesheet" />
   </head>
-  <body class="flex flex-col min-h-screen">
-    {{template "header" .}} {{template "nav" .}}
+  <body class="bg-gray-800 text-white flex flex-col min-h-screen">
+    <header>{{template "header" .}}</header>
     <!-- The container where dynamic content will be loaded -->
     <div
-      class="flex-grow container mx-auto px-4 py-8"
       id="main-content"
       hx-get="/index"
       hx-trigger="load"
+      class="flex flex-col flex-1"
     >
       {{template "index" .}}
     </div>
-    {{template "footer" .}}
+    <footer class="text-center">{{template "footer" .}}</footer>
   </body>
 </html>
 {{end}}

@@ -1,17 +1,49 @@
-{{ define "greeting" }} {{ if eq .Name "" }}
+{{define "greeting"}} {{if eq .Name ""}}
 <div id="greeting">
-  What is your name?
-  <form hx-post="/name" hx-target="#greeting" hx-swap="innerHTML">
-    <input type="text" name="name" />
-    <button type="submit">Submit</button>
-  </form>
+  <div class="max-w-md mx-auto">
+    What is your name?
+    <form
+      hx-post="/name"
+      hx-target="#greeting"
+      hx-swap="outerHTML"
+      class="mt-4"
+    >
+      <input
+        type="text"
+        name="name"
+        class="w-full p-2 rounded-md bg-gray-700 border-transparent focus:border-yellow-500 focus:ring-0"
+      />
+      <button
+        type="submit"
+        class="mt-2 w-full py-2 px-4 bg-yellow-500 hover:bg-yellow-600 rounded-md font-medium"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
 </div>
-{{ else }}
+{{else}}
 <div id="greeting">
-  Hello, {{ .Name }}!
-  <form hx-post="/name" hx-target="#greeting" hx-swap="innerHTML">
-    <input type="text" name="name" />
-    <button type="submit">Submit</button>
-  </form>
+  <div class="max-w-md mx-auto">
+    Hello, {{.Name}}!
+    <form
+      hx-post="/name"
+      hx-target="#greeting"
+      hx-swap="outerHTML"
+      class="mt-4"
+    >
+      <input
+        type="text"
+        name="name"
+        class="w-full p-2 rounded-md bg-gray-700 border-transparent focus:border-yellow-500 focus:ring-0"
+      />
+      <button
+        type="submit"
+        class="mt-2 w-full py-2 px-4 bg-yellow-500 hover:bg-yellow-600 rounded-md font-medium"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
 </div>
-{{ end }} {{ end }}
+{{end}} {{end}}

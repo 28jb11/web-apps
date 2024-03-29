@@ -1,16 +1,49 @@
 {{define "contact"}}
-<div id="main-content" data-title="Contact Us">
-  <main>
-    <h2>Contact Us</h2>
-    <form id="contact-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+<div id="main-content" class="p-4" data-title="Contact Us">
+  <main class="max-w-lg mx-auto">
+    <div>
+      <h2 class="text-xl font-bold text-center mb-4">Contact Us</h2>
+      <form id="contact-form" class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full p-2 rounded-md bg-gray-700 border-transparent focus:border-yellow-500 focus:ring-0"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full p-2 rounded-md bg-gray-700 border-transparent focus:border-yellow-500 focus:ring-0"
+          />
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium"
+            >Message:</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            class="w-full p-2 rounded-md bg-gray-700 border-transparent focus:border-yellow-500 focus:ring-0"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="w-full py-2 px-4 bg-yellow-500 hover:bg-yellow-600 rounded-md font-medium"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
   </main>
 </div>
 {{end}}
