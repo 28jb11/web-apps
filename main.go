@@ -20,19 +20,21 @@ func main() {
 	http.Handle("/src/", http.StripPrefix("/src/", fs))
 
 	// Initialize handlers with templates.
-	baseHandler := &handlers.BaseHandler{Tmpl: templates}
+	baseplateHandler := &handlers.BaseplateHandler{Tmpl: templates}
 	indexHandler := &handlers.IndexHandler{Tmpl: templates}
 	nameHandler := &handlers.NameHandler{Tmpl: templates}
 	contactHandler := &handlers.ContactHandler{Tmpl: templates}
 	aboutHandler := &handlers.AboutHandler{Tmpl: templates}
+	calcHandler := &handlers.CalcHandler{Tmpl: templates}
 
 	// Setup handlers.
-	http.Handle("/", baseHandler)
-	http.Handle("/name", nameHandler)
+	http.Handle("/", baseplateHandler)
 	http.Handle("/index", indexHandler)
+	http.Handle("/name", nameHandler)
 	http.Handle("/contact", contactHandler)
 	http.Handle("/about", aboutHandler)
-
+	http.Handle("/calculate", calcHandler)
+	http.Handle("/update-display", handlers.DisplayHandler{})
 	// Start server.
 	log.Println("Listening on :8080...")
 	err = http.ListenAndServe(":8080", nil)

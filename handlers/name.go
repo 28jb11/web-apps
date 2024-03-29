@@ -15,7 +15,7 @@ func (t NameHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	greetingName := r.FormValue("name")
+	name := r.FormValue("name")
 
 	type PageData struct {
 		Title string
@@ -23,7 +23,7 @@ func (t NameHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 	data := PageData{
 		Title: "Name",
-		Name:  greetingName,
+		Name:  name,
 	}
 
 	err := t.Tmpl.ExecuteTemplate(w, "greeting", data)
