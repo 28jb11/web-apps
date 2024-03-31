@@ -23,12 +23,22 @@ func (h DisplayHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var display string
+
 	button := r.FormValue("button")
-	if button == "" {
-		button = "0" // Default display value
+	switch button {
+	case "C":
+		display = "0"
+	case "=":
+		// Evaluate the expression
+		display = "42"
+	default:
+		display = button
 	}
 
 	// Just send back the button value for the display update
 	w.Header().Set("Content-Type", "text/plain")
-	w.Write([]byte(button))
+	if _, err := w.Write([]byte(display)); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
